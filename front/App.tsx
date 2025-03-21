@@ -4,25 +4,23 @@ import { Button, View, Text, StyleSheet, SafeAreaView, TextInput } from 'react-n
 import AuthHomeScreen from './src/screens/AuthHomeScreen';
 import AuthStackNavigator from './src/navigation/AuthStackNavigator';
 
-const App = () => {
+function App() {
   const [name, setName] = useState('');
-
 
   const handleChangeInput = (text: string) => {
     console.log(text);
     setName(text);
-  }
+  };
+
   return (
-    <SafeAreaView>
-      <NavigationContainer>
+    <NavigationContainer>
+      <SafeAreaView style={{ flex: 1 }}>
         <AuthStackNavigator />
-      </NavigationContainer>
-    </SafeAreaView>
-
-
-
+      </SafeAreaView>
+    </NavigationContainer>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {
