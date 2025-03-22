@@ -7,7 +7,7 @@ function AuthHomeScreen({ navigation }) {
         <SafeAreaView>
             <View>
                 <Button
-                    title='로그인화면으로 이동'
+                    title='로그인화면으로 go'
                     onPress={() => navigation.navigate('Login')} />
             </View>
         </SafeAreaView>
