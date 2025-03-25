@@ -2,10 +2,10 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import { Button, StyleSheet, View, Text } from 'react-native';
-import AuthHomeScreen from '../../screens/AuthHomeScreen';
-import LoginScreen from '../../screens/LoginScreen';
+import AuthHomeScreen from '../../screens/auth/AuthHomeScreen';
+import LoginScreen from '../../screens/auth/LoginScreen';
 import { authNavigations } from '../../constants';
-import SignupScreen from '../../screens/SignupScreen';
+import SignupScreen from '../../screens/auth/SignupScreen';
 
 export type AuthStackParamList = {
     [authNavigations.AUTH_HOME]: undefined;
@@ -13,14 +13,33 @@ export type AuthStackParamList = {
     [authNavigations.SIGNUP]: undefined;
 }
 
+const Stack = createStackNavigator<AuthStackParamList>();
 
 function AuthStackNavigator() {
-    const Stack = createStackNavigator<AuthStackParamList>();
     return (
-        <Stack.Navigator>
-            <Stack.Screen name={authNavigations.AUTH_HOME} component={AuthHomeScreen} />
-            <Stack.Screen name={authNavigations.LOGIN} component={LoginScreen} />
-            <Stack.Screen name={authNavigations.SIGNUP} component={SignupScreen} />
+        <Stack.Navigator screenOptions={{
+            cardStyle: {
+                backgroundColor: 'white'
+            },
+            headerStyle: {
+                backgroundColor: 'white',
+                shadowColor: 'gray',
+            },
+            headerTitleStyle: {
+                fontSize: 20,
+            },
+            headerTintColor: 'black',
+        }}>
+            <Stack.Screen name={authNavigations.AUTH_HOME} component={AuthHomeScreen} options={{
+                headerTitle: ' ',
+                headerShown: false,
+            }} />
+            <Stack.Screen name={authNavigations.LOGIN} component={LoginScreen} options={{
+                headerTitle: '로그인'
+            }} />
+            <Stack.Screen name={authNavigations.SIGNUP} component={SignupScreen} options={{
+                headerTitle: '회원가입'
+            }} />
         </Stack.Navigator>
     );
 }
