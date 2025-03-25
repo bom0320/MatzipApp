@@ -8,7 +8,7 @@ import { authNavigations } from '../constants';
 // "navigation을 사용할 때, 이동할 수 있는 스크린을 Typescript가 알 수 있도록 정의하는 곳"
 
 
-type AuthHomeScreenProps = StackScreenProps<AuthStackParamList>;
+type AuthHomeScreenProps = StackScreenProps<AuthStackParamList, typeof authNavigations.AUTH_HOME>;
 
 function AuthHomeScreen({ navigation }: AuthHomeScreenProps) {
     return (
